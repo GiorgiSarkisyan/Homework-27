@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <button id="button2">abdal</button>
+    <button for="inputselector"></button>
+    <input id="inputselector" type="text">
+    <p id="log"></p>
+    <p id="logsum"></p>
+    <p id="clickedp">not clicked</p>
+    <script>
+        // პირველი დავალება (კლიკზე წაიშალოს ბათონი)
+        const element = document.getElementById("button2")
+        element.addEventListener('click', () => {
+            element.remove()
+        })
+        // მეორე დავალება (სურათი)
+        const container = document.getElementById("body")
+        const img = document.createElement("img")
+        img.setAttribute('src', 'https://www.simplilearn.com/ice9/free_resources_article_thumb/Become_a_Front_End_Developer.jpg')
+        document.body.appendChild(img)
+        // მესამე დავალება (ინპუთი)
+        const input = document.getElementById("inputselector");
+        const log = document.getElementById("log");
+        inputselector.addEventListener("change", updateValue);
+        // მეოთხე დავალება (ფუნქცია)
+        const arr = []
+        function updateValue(e) {
+        log.textContent = e.target.value;
+        arr.push(log.textContent)
+        console.log(arr)
+        }
+        // მეხუთე დავალება (ჯამი)
+        const logsum = document.getElementById("logsum")
+        const productData = [
+        { product_id: 1, amount: 200 },{ product_id: 2, amount: 300 },{ product_id: 3, amount: 500 }];
+        function calculateAmount(data) {
+        const Amount = data.reduce((sum, item) => sum + item.amount, 0);
+        return Amount;
+        }
+        const sum = calculateAmount(productData);
+        console.log(sum);
+        if (sum > 0){
+            logsum.textContent = sum;
+        }
+        // ოფისის საათის დავალება
+        // პირველი დავალება (სახელების გაფილტრვა)
+        const names = ["vaso", "giorgi", "john", "irakli"]
+        function getNamesFiltered(names){
+            let filteredNames = names.filter(name => name.length > 5)
+            return filteredNames
+        }
+        console.log(getNamesFiltered(names))
+        // მეორე დავალება (ჯამი) 
+        let a = 2;
+        let b = 3;
+        let c = 4;
+        function getSum(a,b,c) {
+            let sum = a + b + c;
+            return sum
+        }
+        // მესამე დავალება (სხვაობა)
+        console.log(getSum(a,b,c))
+        function getSxvaoba(a,b) {
+            let sxvaoba = a - b;
+            return sxvaoba
+        }
+        console.log(getSxvaoba(a,b))
+        // მეოთხე დავალება (გაფილტრვა)
+        const persons = [
+            {
+                age: 30,
+            },
+            {
+                age: 21,
+            },
+            {
+                age: 16,
+            }
+        ]
+        function filterAge (persons) {
+            let person = persons.filter((person) => person.age === 21)
+            return person
+        }
+        console.log(filterAge(persons))
+        // მეხუთე დავალება
+        const p = document.getElementById("clickedp")
+            p.addEventListener("click", function() {
+                if (p.textContent === "not clicked") {
+                    p.textContent = "clicked";
+                }
+                else (
+                    p.textContent = "not clicked"
+                )
+            })
+    </script>
+</body>
+</html>
